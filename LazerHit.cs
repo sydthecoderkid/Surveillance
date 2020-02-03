@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class LazerHit : MonoBehaviour
 {
+    private GameObject lazer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        lazer = GetComponent<GameObject>();
     }
 
     // Update is called once per frame
@@ -16,10 +17,17 @@ public class LazerHit : MonoBehaviour
         
     }
     void OnCollisionEnter2D(Collision2D col)
-    {         PlayerHealth.health -= 10;
-         PlayerHealth.displayhealth -= 10;
+    {   
+        if(col.collider.tag.Equals("Player")){      
+        PlayerHealth.health -= 5;
+         PlayerHealth.displayhealth -= 5;
          Debug.Log(PlayerHealth.health);
+    }
+    else if(col.collider.tag.Equals("Colldier")){
+        Destroy(lazer);
+       }
 
     }
+    
    
 }

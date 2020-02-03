@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class OutofBounds : MonoBehaviour
 {
-    public Camera cam;
+    public static bool hitwall;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,5 +20,13 @@ public class OutofBounds : MonoBehaviour
     void Update()
     {
         
+    }
+     void OnCollisionEnter2D(Collision2D col)
+    {
+     hitwall = true;          
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+     hitwall = false;          
     }
 }

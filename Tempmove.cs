@@ -27,7 +27,7 @@ public class Tempmove : MonoBehaviour
     {
         if(Movement.gamestarted){
          player.transform.position = new Vector2(playerx, transform.position.y);
-           playerx += (0.5f * Time.deltaTime);
+           playerx += (1.25f * Time.deltaTime);
         }
         
     }

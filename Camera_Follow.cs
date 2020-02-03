@@ -26,7 +26,7 @@ public class Camera_Follow : MonoBehaviour
         
          transform.position = new Vector3(thisx, thisy, thisz);
           if(Movement.gamestarted){
-         thisx += (0.5f * Time.deltaTime);
+         thisx += (1.25f * Time.deltaTime);
           }
         
     }

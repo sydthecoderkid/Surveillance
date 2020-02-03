@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
         if(!gamestarted && Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
             startgame();
         }
+        if(!OutofBounds.hitwall){
         if(Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
             player.transform.position = new Vector2(playerx, playery);
            playerx += (1.5f * Time.deltaTime);
@@ -41,6 +42,7 @@ public class Movement : MonoBehaviour
            player.transform.position = new Vector2(playerx, playery);
            playerx -= (1.5f * Time.deltaTime);
         }
+     }
     
     }
     public void startgame(){
