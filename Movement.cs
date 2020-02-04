@@ -25,24 +25,23 @@ public class Movement : MonoBehaviour
         if(!gamestarted && Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
             startgame();
         }
-        if(!OutofBounds.hitwall){
-        if(Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
+
+        if(Input.GetKey( KeyCode.D) && !OutofBounds.rightwall || Input.GetKey(KeyCode.RightArrow) && !OutofBounds.rightwall){
             player.transform.position = new Vector2(playerx, playery);
            playerx += (1.5f * Time.deltaTime);
         }
-          if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)){
+          if(Input.GetKey(KeyCode.UpArrow) && !OutofBounds.topwall|| Input.GetKey(KeyCode.W) && !OutofBounds.topwall || Input.GetKey(KeyCode.Space) && !OutofBounds.topwall){
            player.transform.position = new Vector2(playerx, playery);
            playery += (1.5f * Time.deltaTime);
         }
-          if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)){
+          if(Input.GetKey(KeyCode.DownArrow) && !OutofBounds.bottomwall|| Input.GetKey(KeyCode.S)&& !OutofBounds.bottomwall){
           player.transform.position = new Vector2(playerx, playery);
            playery -= (1.5f * Time.deltaTime);
         }
-         if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)){
+         if(Input.GetKey(KeyCode.LeftArrow) && !OutofBounds.leftwall|| Input.GetKey(KeyCode.A) && !OutofBounds.leftwall){
            player.transform.position = new Vector2(playerx, playery);
            playerx -= (1.5f * Time.deltaTime);
         }
-     }
     
     }
     public void startgame(){

@@ -5,6 +5,12 @@ using UnityEngine;
 public class OutofBounds : MonoBehaviour
 {
     public static bool hitwall;
+    public static bool topwall;
+
+    public static bool bottomwall;
+     public static bool leftwall;
+
+    public static bool rightwall;
 
 
     // Start is called before the first frame update
@@ -23,10 +29,28 @@ public class OutofBounds : MonoBehaviour
     }
      void OnCollisionEnter2D(Collision2D col)
     {
-     hitwall = true;          
+     if(this.gameObject.name.Equals("Wall3")){
+         topwall = true;
+         bottomwall = false;
+     }
+    else if(this.gameObject.name.Equals("Wall4")){
+         topwall = false;
+         bottomwall = true;
+     }
+     else if(this.gameObject.name.Equals("Wall1")){
+        leftwall = true;
+        rightwall = false;
+     }
+     else if(this.gameObject.name.Equals("Wall2")){
+         leftwall = false;
+        rightwall = true;
+     }
     }
     void OnCollisionExit2D(Collision2D col)
     {
-     hitwall = false;          
+           leftwall = false;
+           rightwall = false;
+           topwall = false;
+           bottomwall = false;
     }
 }
