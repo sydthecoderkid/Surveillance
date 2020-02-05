@@ -9,12 +9,15 @@ public class Movement : MonoBehaviour
     public float playery;
 
     public static bool gamestarted = false;
+
+    private float playerspeed;
     // Start is called before the first frame update
     void Start()
     {
         playerx = transform.position.x;
         playery = transform.position.y;
       player.transform.position = new Vector2(playerx, playery);
+      playerspeed = 2.5f;
     }
 
     // Update is called once per frame if(Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
@@ -28,19 +31,19 @@ public class Movement : MonoBehaviour
 
         if(Input.GetKey( KeyCode.D) && !OutofBounds.rightwall || Input.GetKey(KeyCode.RightArrow) && !OutofBounds.rightwall){
             player.transform.position = new Vector2(playerx, playery);
-           playerx += (1.5f * Time.deltaTime);
+           playerx += (playerspeed * Time.deltaTime);
         }
           if(Input.GetKey(KeyCode.UpArrow) && !OutofBounds.topwall|| Input.GetKey(KeyCode.W) && !OutofBounds.topwall || Input.GetKey(KeyCode.Space) && !OutofBounds.topwall){
            player.transform.position = new Vector2(playerx, playery);
-           playery += (1.5f * Time.deltaTime);
+           playery += (playerspeed * Time.deltaTime);
         }
           if(Input.GetKey(KeyCode.DownArrow) && !OutofBounds.bottomwall|| Input.GetKey(KeyCode.S)&& !OutofBounds.bottomwall){
           player.transform.position = new Vector2(playerx, playery);
-           playery -= (1.5f * Time.deltaTime);
+           playery -= (playerspeed * Time.deltaTime);
         }
          if(Input.GetKey(KeyCode.LeftArrow) && !OutofBounds.leftwall|| Input.GetKey(KeyCode.A) && !OutofBounds.leftwall){
            player.transform.position = new Vector2(playerx, playery);
-           playerx -= (1.5f * Time.deltaTime);
+           playerx -= (playerspeed * Time.deltaTime);
         }
     
     }

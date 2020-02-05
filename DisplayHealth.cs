@@ -17,6 +17,11 @@ public class DisplayHealth : MonoBehaviour
     void Update()
     {
          health = ("Health: " + PlayerHealth.displayhealth);
+         if(this.gameObject.name.Equals("Coins")){
+             text.text =("Coins: " + PlayerHealth.displaycoins + "/" + LevelAmount.coinnumber);
+         }
+         else{
         text.text = health;
+         }
     }
 }

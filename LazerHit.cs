@@ -18,10 +18,16 @@ public class LazerHit : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {   
-        if(col.collider.tag.Equals("Player")){      
+        if(this.gameObject.name.Equals("Toplazer(Clone)") && col.collider.tag.Equals("Player")){      
         PlayerHealth.health -= 5;
          PlayerHealth.displayhealth -= 5;
          Debug.Log(PlayerHealth.health);
+    }
+    else if(this.gameObject.name.Equals("Coin") ||  this.gameObject.name.Equals("Coin(Clone)")){      
+        if (col.collider.tag.Equals("Player")){
+        PlayerHealth.coins+=0.5f;
+        Destroy(this.gameObject);
+        }
     }
     else if(col.collider.tag.Equals("Colldier")){
         Destroy(lazer);

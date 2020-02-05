@@ -4,7 +4,7 @@ using UnityEngine;
 using static System.Random;
 
 
-public class SpawnLasers : MonoBehaviour
+public class Spawn_Objects : MonoBehaviour
 {
     public GameObject wall1;
     public GameObject wall2;
@@ -14,19 +14,21 @@ public class SpawnLasers : MonoBehaviour
         public GameObject topwall;
             public GameObject bottomwall;
 
+            public GameObject coin;
     public float position;
 
       public float positiony;
 
     private float time;
+     private float cointimer;
 
     public static System.Random random;
 
-    private int numlasers;
-        private int bound1;
-      private  int bound2;
-        private int topbound;
-       private  int bottombound;
+
+        public int bound1;
+      public  int bound2;
+        public int topbound;
+       public  int bottombound;
     
     // Start is called before the first frame update
     void Start()
@@ -43,12 +45,13 @@ public class SpawnLasers : MonoBehaviour
      bottombound = (int) bottomwall.transform.position.y;
      
         time += Time.deltaTime;
-        if(OnRender.lasersdestroyed && time >= 3f){
-
+        if(OnRender.objectsdestroyed && time >= 3f){
+            spawncoins();
             deploylasers();
           
 
         }
+        cointimer += Time.deltaTime;
     }
 
     public  void deploylasers(){
@@ -61,15 +64,45 @@ public class SpawnLasers : MonoBehaviour
         if(positiony >= topbound){
             positiony = topbound-0.1f;
         }
-
+         if(position + 2 > Movement.playerx){
        Instantiate(toplaser, new Vector2(position + 2, positiony ),Quaternion.identity);
+         }
                positiony += (float) random.NextDouble();
+
+               if(position + 3 > Movement.playerx){
        Instantiate(toplaser, new Vector2(position + 3, positiony ),Quaternion.identity);
+           }
         positiony -= (float) random.NextDouble();
+        if(position + 4 > Movement.playerx){
         Instantiate(toplaser, new Vector2(position+4, positiony ),Quaternion.identity);
+        }
           time = 0;
          
        
        
+    }
+
+    public void spawncoins(){
+     
+      position = bound1;
+        positiony = topbound;
+        position += (float) random.NextDouble();
+        positiony += (float) random.NextDouble();
+          if(positiony >= topbound){
+            positiony = topbound-0.1f;
+        }
+         if(position < Movement.playerx){
+       Instantiate(coin, new Vector2(position + 2, positiony ),Quaternion.identity);
+         }
+               positiony += (float) random.NextDouble();
+               if(position != Movement.playerx){
+       Instantiate(coin, new Vector2(position + 3, positiony ),Quaternion.identity);
+               }
+        positiony -= (float) random.NextDouble();
+        if(position < Movement.playerx){
+        Instantiate(coin, new Vector2(position+4, positiony ),Quaternion.identity);
+        }
+          time = 0;
+          
     }
 }

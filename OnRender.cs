@@ -6,9 +6,9 @@ public class OnRender : MonoBehaviour
 {
     // Start is called before the first frame update
     public Renderer render;
-    public GameObject holder;
+    public GameObject thisobj;
 
-    public static bool lasersdestroyed;
+    public static bool objectsdestroyed;
 
     private float time;
     void Start()
@@ -22,8 +22,8 @@ public class OnRender : MonoBehaviour
         time += Time.deltaTime;
 
         if(time >= 2 && render.isVisible == false){
-            lasersdestroyed = true;
-            Destroy(holder);
+            objectsdestroyed = true;
+            Destroy(thisobj);
         }
     }
 }
