@@ -12,7 +12,8 @@ public class Tempmove : MonoBehaviour
     public float xholder;
 
     public static bool gamestarted = false;
-
+  
+  public static float movespeed = 1.5f;
     public GameObject robber;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class Tempmove : MonoBehaviour
           playerx = transform.position.x;
           playery = transform.position.y;
       player.transform.position = new Vector2(playerx, playery);
+     
+
     }
 
     // Update is called once per frame
@@ -27,7 +30,7 @@ public class Tempmove : MonoBehaviour
     {
         if(Movement.gamestarted){
          player.transform.position = new Vector2(playerx, transform.position.y);
-           playerx += (1.25f * Time.deltaTime);
+           playerx += (movespeed * Time.deltaTime);
         }
         
     }
@@ -37,4 +40,5 @@ public class Tempmove : MonoBehaviour
          PlayerHealth.death();
 
     }
+    
 }

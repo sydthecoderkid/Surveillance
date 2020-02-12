@@ -6,7 +6,7 @@ public class Camera_Follow : MonoBehaviour
 {
     public float positionx;
     public GameObject player;
-
+ 
     public static float thisx;
     private float thisy;
 
@@ -26,7 +26,7 @@ public class Camera_Follow : MonoBehaviour
         
          transform.position = new Vector3(thisx, thisy, thisz);
           if(Movement.gamestarted){
-         thisx += (1.25f * Time.deltaTime);
+         thisx += (Tempmove.movespeed * Time.deltaTime);
           }
         
     }
