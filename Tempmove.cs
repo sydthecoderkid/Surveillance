@@ -36,7 +36,6 @@ public class Tempmove : MonoBehaviour
     }
   void OnCollisionEnter2D(Collision2D col)
     {
-               Destroy(robber);
          PlayerHealth.death();
 
     }

@@ -8,8 +8,14 @@ public class PlayerHealth : MonoBehaviour
      public  static int displayhealth = 100;
     public static bool  movementenabled = true;
 
+public static GameObject player;
     public static float coins;
     public static int displaycoins;
+
+    public static bool playerdied;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
         coins = 0;
         displaycoins = 0;
         displayhealth = health;
+       player = this.gameObject;
+       
     }
 
     
@@ -34,5 +42,9 @@ public class PlayerHealth : MonoBehaviour
 
     public static void death(){
        movementenabled = false;
+       playerdied = true;
+       Destroy(player);
+      
     }
+    
 }

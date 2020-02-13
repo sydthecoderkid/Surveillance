@@ -38,10 +38,10 @@ public class LazerHit : MonoBehaviour
             hit = false;
             timer2 = 0;
         }
-      if(!hit){
+      if(!hit && player != null){
           player.GetComponent<SpriteRenderer>().color = UnityEngine.Color.white;
       }
-      if(hit){
+      if(hit && player != null){
           timer2 +=Time.deltaTime;
             player.GetComponent<SpriteRenderer>().color = UnityEngine.Color.red;
       }
