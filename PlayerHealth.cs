@@ -16,6 +16,7 @@ public static GameObject player;
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,7 @@ public static GameObject player;
     }
 
     public static void death(){
+        health = 0;
        movementenabled = false;
        playerdied = true;
        Destroy(player);

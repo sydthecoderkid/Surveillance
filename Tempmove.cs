@@ -28,7 +28,7 @@ public class Tempmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Movement.gamestarted){
+        if(Movement.gamestarted && PlayerHealth.movementenabled){
          player.transform.position = new Vector2(playerx, transform.position.y);
            playerx += (movespeed * Time.deltaTime);
         }

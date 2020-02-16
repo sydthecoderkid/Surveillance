@@ -16,9 +16,9 @@ public class DisplayHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         health = ("Health: " + PlayerHealth.displayhealth);
+         health = ("" + PlayerHealth.displayhealth);
          if(this.gameObject.name.Equals("Coins")){
-             text.text =("Coins: " + PlayerHealth.displaycoins + "/" + LevelAmount.coinnumber);
+             text.text =( "X " + PlayerHealth.displaycoins);
          }
          else{
         text.text = health;

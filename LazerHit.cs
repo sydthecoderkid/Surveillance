@@ -27,12 +27,13 @@ public class LazerHit : MonoBehaviour
     {
         lazer = GetComponent<GameObject>();
         player = GameObject.Find("Robber");
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        
         if(timer2 >= 0.3f){
             playlazersound = false;
             hit = false;
@@ -52,6 +53,7 @@ public class LazerHit : MonoBehaviour
         PlayerHealth.health -= 5;
          PlayerHealth.displayhealth -= 5;
             playlazersound = true;
+            UIShake.shakeUI();
          hit =true;
          timer2 = 0;
         
@@ -69,6 +71,7 @@ public class LazerHit : MonoBehaviour
 
     }
 
+    
     
     
    

@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     public static bool gamestarted = false;
 
     private float playerspeed;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class Movement : MonoBehaviour
     
     void Update()
     {
+      if(PlayerHealth.movementenabled){
         if(!gamestarted && Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
             startgame();
         }
@@ -45,6 +48,7 @@ public class Movement : MonoBehaviour
            player.transform.position = new Vector2(playerx, playery);
            playerx -= (playerspeed * Time.deltaTime);
         }
+      }
     
     }
     public void startgame(){

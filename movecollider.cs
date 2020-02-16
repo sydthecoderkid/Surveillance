@@ -30,6 +30,7 @@ public class movecollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PlayerHealth.movementenabled){
         lazerholder.transform.position = new Vector2(lazerholder.transform.position.x, positiony);
 
         if(time >= 0.6f && goingup){
@@ -43,6 +44,7 @@ public class movecollider : MonoBehaviour
         goingup = true;
         goingdown = false;
         time = 0;
+        }
         }
         
     }
