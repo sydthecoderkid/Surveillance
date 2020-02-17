@@ -22,7 +22,8 @@ public class Restart : MonoBehaviour
                 Movement.gamestarted = false;
         PlayerHealth.movementenabled = true;
         PauseMenu.pausemenuup = false;
-        SceneManager.UnloadSceneAsync(LevelAmount.currentlevel);
+        ShowTime.time = 0;
+       // SceneManager.UnloadSceneAsync(LevelAmount.currentlevel);
         SceneManager.LoadScene(LevelAmount.currentlevel);
     }
 }

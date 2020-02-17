@@ -10,6 +10,8 @@ public class UIShake : MonoBehaviour
     private static GameObject thisobject;
 
     private static bool shook;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,9 @@ public class UIShake : MonoBehaviour
        if(thisobject.transform.position.x >= (originalposx + 0.2f) && timer >= 0.15f && shook){
         thisobject.transform.position = new Vector2((thisobject.transform.position.x-0.2f), thisobject.transform.position.y);
         shook = false;
+       }
+       if(!shook && thisobject.transform.position.x > originalposx || !shook && thisobject.transform.position.x < originalposx){
+           thisobject.transform.position = new Vector2((thisobject.transform.position.x), thisobject.transform.position.y);
        }
     }
 

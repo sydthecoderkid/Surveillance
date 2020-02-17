@@ -54,6 +54,8 @@ public class LazerHit : MonoBehaviour
          PlayerHealth.displayhealth -= 5;
             playlazersound = true;
             UIShake.shakeUI();
+            ChangeHealthColor.changecolor();
+            ChangeTextColor.changecolor();
          hit =true;
          timer2 = 0;
         
