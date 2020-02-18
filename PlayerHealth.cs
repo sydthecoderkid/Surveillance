@@ -43,8 +43,10 @@ public static GameObject player;
 
     public static void death(){
         health = 0;
+        displayhealth = 0;
        movementenabled = false;
        playerdied = true;
+       ChangeTextColor.changecolor();
        Destroy(player);
       
     }

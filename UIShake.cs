@@ -9,7 +9,7 @@ public class UIShake : MonoBehaviour
      public static float timer;
     private static GameObject thisobject;
 
-    private static bool shook;
+    public static bool shook;
 
    
     // Start is called before the first frame update

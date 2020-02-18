@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class ShowTime : MonoBehaviour
+
+public class MobileMovement : MonoBehaviour
 {
-    public static float time;
-    public Text timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +13,8 @@ public class ShowTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerHealth.movementenabled && Movement.gamestarted){
-        time += Time.deltaTime;
+        if(Input.touchCount > 0){
+            Debug.Log("Touching");
         }
-        timer.text = "" + (int) time;
     }
 }

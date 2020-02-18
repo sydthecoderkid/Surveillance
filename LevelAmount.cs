@@ -8,10 +8,16 @@ public class LevelAmount : MonoBehaviour
     public static string currentscene;
 
     public static string currentlevel;
+
+     public static string playlevel;
+
+     public static float spawnspeed;
     // Start is called before the first frame update
     void Start()
     {
+         if(!(SceneManager.GetActiveScene().name.Equals("Debrief"))){
         currentscene = SceneManager.GetActiveScene().name;
+         }
         if(currentscene.Equals("MainMenu")){
              currentlevel = "MainMenu";
         }
@@ -19,21 +25,29 @@ public class LevelAmount : MonoBehaviour
              coinnumber = 10;
              Tempmove.movespeed = 1.25f;
              currentlevel = "BankScene";
+             playlevel = "BankScene";
+             spawnspeed =3f;
         }
         if(currentscene.Equals("Level2")){
              coinnumber = 15;
               Tempmove.movespeed = 1.5f;
                currentlevel = "Level2";
+                 playlevel = "Level2";
+                 spawnspeed = 2.75f;
         }
           if(currentscene.Equals("Level3")){
              coinnumber = 20;
               Tempmove.movespeed = 1.75f;
                 currentlevel = "Level3";
+               playlevel = "Level3";
+               spawnspeed = 2.5f;
         }
         if(currentscene.Equals("Level4")){
-             coinnumber = 2;
+             coinnumber = 25;
               Tempmove.movespeed = 2f;
                 currentlevel = "Level4";
+                playlevel = "Level4";
+                spawnspeed = 2.25f;
         }
     }
 

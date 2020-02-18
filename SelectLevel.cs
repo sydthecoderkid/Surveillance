@@ -22,6 +22,10 @@ public class SelectLevel : MonoBehaviour
         
     }
     void TaskOnClick(){
+        PlayerHealth.movementenabled = true;
+        PlayerHealth.playerdied = false;
+        ShowTime.time = 0;
+        LazerHit.hit = false;
       if(thisname.Equals("Level One")){
           SceneManager.LoadScene("Bankscene");
       }

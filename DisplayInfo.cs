@@ -37,8 +37,11 @@ public class DisplayInfo : MonoBehaviour
 
       public Text statusdisplay;
 
+     public static bool succeeded;
 
 
+     public static bool failed;
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -79,10 +82,12 @@ public class DisplayInfo : MonoBehaviour
           if(scoreshown){
               if(coinnumber >= LevelAmount.coinnumber){
                   statusdisplay.color = Color.yellow;
+                  succeeded = true;
                   statusdisplay.text = "STATUS: SUCCESS";
               }
                if(coinnumber < LevelAmount.coinnumber){
                   statusdisplay.color = Color.black;
+                  failed = true;
                   statusdisplay.text = "STATUS: FAILURE";
               }
            status.SetActive(true);
