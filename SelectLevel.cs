@@ -26,18 +26,28 @@ public class SelectLevel : MonoBehaviour
         PlayerHealth.playerdied = false;
         ShowTime.time = 0;
         LazerHit.hit = false;
-      if(thisname.Equals("Level One")){
-          SceneManager.LoadScene("Bankscene");
-      }
-       if(thisname.Equals("Level Two")){
-          SceneManager.LoadScene("Level2");
-      }
-       if(thisname.Equals("Level Three")){
-          SceneManager.LoadScene("Level3");
-      }
-       if(thisname.Equals("Level Four")){
-          SceneManager.LoadScene("Level4");
-      }
+        switch(thisname){
+            case "Level One":
+            
+            SceneManager.LoadScene("Bankscene");
+            break;
+
+            case "Level Two":
+            if(UnlockLevels.leveltwounlocked)
+            SceneManager.LoadScene("Level2");
+            break;
+
+            case "Level Three":
+             if(UnlockLevels.levelthreeunlocked)
+            SceneManager.LoadScene("Level3");
+            break;
+
+            case "Level Four":
+             if(UnlockLevels.levelfourunlocked)
+            SceneManager.LoadScene("Level4");
+            break;
+        }
+      
        
     }
 }

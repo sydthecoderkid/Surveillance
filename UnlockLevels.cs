@@ -4,17 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UnlockLevels : MonoBehaviour
 {
-    public GameObject leveltwolock;
-    public GameObject levelthreelock;
+    public static GameObject leveltwolock;
+    public static GameObject levelthreelock;
 
-    public GameObject levelfourlock;
+    public static GameObject levelfourlock;
 
-    private bool leveltwounlocked;
-    private bool levelthreeunlocked;
+    public static bool leveltwounlocked;
+    public static bool levelthreeunlocked;
+
+     public static bool levelfourunlocked;
     // Start is called before the first frame update
     void Start()
     {
-        
+        leveltwolock = GameObject.Find("Level 2");
+        levelthreelock = GameObject.Find("Lock 3");
+         levelfourlock = GameObject.Find("Lock 4");
     }
 
     // Update is called once per frame
@@ -22,16 +26,17 @@ public class UnlockLevels : MonoBehaviour
     {
         if(DisplayInfo.succeeded){
           if(LevelAmount.playlevel.Equals("BankScene")){
+              leveltwounlocked = true;
               leveltwolock.SetActive(false);
           }
           if(LevelAmount.playlevel.Equals("Level2")){
+              levelthreeunlocked = true;
               levelthreelock.SetActive(false);
-               leveltwolock.SetActive(false);
+
           }
           if(LevelAmount.playlevel.Equals("Level3")){
+              levelfourunlocked = true;
               levelfourlock.SetActive(false);
-               levelthreelock.SetActive(false);
-               leveltwolock.SetActive(false);
           }
         }
     }

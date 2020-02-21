@@ -16,7 +16,10 @@ public class OutofBounds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+      topwall = false;
+      rightwall = false;
+      bottomwall = false;
+      leftwall = false;
     }
 
 

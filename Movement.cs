@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public GameObject player; 
+    public static GameObject player; 
     public static float playerx;
-    public float playery;
+    public static float playery;
 
     public static bool gamestarted = false;
 
-    private float playerspeed;
+    public static float playerspeed;
 
 
     // Start is called before the first frame update
@@ -18,8 +18,9 @@ public class Movement : MonoBehaviour
     {
         playerx = transform.position.x;
         playery = transform.position.y;
+        player = this.gameObject;
       player.transform.position = new Vector2(playerx, playery);
-      playerspeed = 2.5f;
+      playerspeed = 1.5f;
     }
 
     // Update is called once per frame if(Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
@@ -33,12 +34,10 @@ public class Movement : MonoBehaviour
         }
 
         if(Input.GetKey( KeyCode.D) && !OutofBounds.rightwall || Input.GetKey(KeyCode.RightArrow) && !OutofBounds.rightwall){
-            player.transform.position = new Vector2(playerx, playery);
-           playerx += (playerspeed * Time.deltaTime);
+            moveright();
         }
           if(Input.GetKey(KeyCode.UpArrow) && !OutofBounds.topwall|| Input.GetKey(KeyCode.W) && !OutofBounds.topwall || Input.GetKey(KeyCode.Space) && !OutofBounds.topwall){
-           player.transform.position = new Vector2(playerx, playery);
-           playery += (playerspeed * Time.deltaTime);
+            moveup();
         }
           if(Input.GetKey(KeyCode.DownArrow) && !OutofBounds.bottomwall|| Input.GetKey(KeyCode.S)&& !OutofBounds.bottomwall){
           player.transform.position = new Vector2(playerx, playery);
@@ -51,8 +50,28 @@ public class Movement : MonoBehaviour
       }
     
     }
-    public void startgame(){
+    public static void startgame(){
         gamestarted = true;
     }
+
+    public static void moveright(){
+          player.transform.position = new Vector2(playerx, playery);
+           playerx += (playerspeed * Time.deltaTime);
+    }
+    public static void moveup(){
+      if(!OutofBounds.topwall){
+      player.transform.position = new Vector2(playerx, playery);
+           playery += (playerspeed * Time.deltaTime);
+      }
+    }
+
+    public static void movedown(){
+      if(!OutofBounds.bottomwall){
+       player.transform.position = new Vector2(playerx, playery);
+           playery -= (playerspeed * Time.deltaTime);
+      }
+    }
+
+    
    
 }
