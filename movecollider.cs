@@ -33,8 +33,8 @@ public class movecollider : MonoBehaviour
         if(PlayerHealth.movementenabled){
         lazerholder.transform.position = new Vector2(lazerholder.transform.position.x, positiony);
 
-        if(time >= 0.6f && goingup){
-            positiony += 0.4f;
+        if(time >= 1f && goingup){
+            positiony += 0.2f;
         goingup = false;
         goingdown = true;
         time = 0;

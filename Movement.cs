@@ -12,6 +12,10 @@ public class Movement : MonoBehaviour
 
     public static float playerspeed;
 
+     public static float playerspeedup;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,57 +25,57 @@ public class Movement : MonoBehaviour
         player = this.gameObject;
       player.transform.position = new Vector2(playerx, playery);
       playerspeed = 1.5f;
+      playerspeedup = 2f;
+
     }
 
     // Update is called once per frame if(Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
            
     
     void Update()
-    {
+    { 
       if(PlayerHealth.movementenabled){
-        if(!gamestarted && Input.GetKey( KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
-            startgame();
-        }
-
-        if(Input.GetKey( KeyCode.D) && !OutofBounds.rightwall || Input.GetKey(KeyCode.RightArrow) && !OutofBounds.rightwall){
-            moveright();
-        }
-          if(Input.GetKey(KeyCode.UpArrow) && !OutofBounds.topwall|| Input.GetKey(KeyCode.W) && !OutofBounds.topwall || Input.GetKey(KeyCode.Space) && !OutofBounds.topwall){
-            moveup();
-        }
-          if(Input.GetKey(KeyCode.DownArrow) && !OutofBounds.bottomwall|| Input.GetKey(KeyCode.S)&& !OutofBounds.bottomwall){
-          player.transform.position = new Vector2(playerx, playery);
-           playery -= (playerspeed * Time.deltaTime);
-        }
-         if(Input.GetKey(KeyCode.LeftArrow) && !OutofBounds.leftwall|| Input.GetKey(KeyCode.A) && !OutofBounds.leftwall){
-           player.transform.position = new Vector2(playerx, playery);
-           playerx -= (playerspeed * Time.deltaTime);
-        }
-      }
-    
-    }
-    public static void startgame(){
-        gamestarted = true;
-    }
-
-    public static void moveright(){
-          player.transform.position = new Vector2(playerx, playery);
-           playerx += (playerspeed * Time.deltaTime);
-    }
-    public static void moveup(){
-      if(!OutofBounds.topwall){
-      player.transform.position = new Vector2(playerx, playery);
-           playery += (playerspeed * Time.deltaTime);
+       if(Input.GetKey(KeyCode.D)){
+         move_right();
+       }
+       if(Input.GetKey(KeyCode.A)){
+        move_left();
+       }
+        if(Input.GetKey(KeyCode.S)){
+        move_down();
+       }
+        if(Input.GetKey(KeyCode.W)){
+         move_up();
+       }
       }
     }
 
-    public static void movedown(){
-      if(!OutofBounds.bottomwall){
-       player.transform.position = new Vector2(playerx, playery);
-           playery -= (playerspeed * Time.deltaTime);
-      }
+    public static void move_right(){
+      Movement.gamestarted = true;
+       Vector3 oldPos = player.transform.position;
+       float newXPos = oldPos.x + Movement.playerspeed * Time.deltaTime;
+        player.transform.position = new Vector3(newXPos,oldPos.y,oldPos.z);
     }
 
-    
+     public static void move_up(){
+       Movement.gamestarted = true;
+       Vector3 oldPos = player.transform.position;
+       float newYPos = oldPos.y + Movement.playerspeedup * Time.deltaTime;
+        player.transform.position = new Vector3(oldPos.x,newYPos,oldPos.z);
+    }
+
+     public static void move_down(){
+        Movement.gamestarted = true;
+          Vector3 oldPos = player.transform.position;
+       float newYPos = oldPos.y - Movement.playerspeedup * Time.deltaTime;
+        player.transform.position = new Vector3(oldPos.x,newYPos,oldPos.z);
+    }
+
+     public static void move_left(){
+         Movement.gamestarted = true;
+       Vector3 oldPos = player.transform.position;
+       float newXPos = oldPos.x - Movement.playerspeed * Time.deltaTime;
+        player.transform.position = new Vector3(newXPos,oldPos.y,oldPos.z);
+    }
    
 }

@@ -5,9 +5,15 @@ using UnityEngine;
 public class MobileMovement : MonoBehaviour
 {
 
-   public static Vector3 thisvector;
+   public static Vector3 fingerpress;
+
+   private static float lastpress;
 
   public Camera thiscamera;
+
+  private int index;
+
+  public Vector2 thisvector;
 
    
 
@@ -20,19 +26,31 @@ public class MobileMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        foreach(Touch touch in Input.touches){
-            if(!Movement.gamestarted){
-                Movement.startgame();
+      
+       if(Input.touches.Length > 0)
+     {
+         Touch touch = Input.touches[0];
+           thisvector = thiscamera.ScreenToWorldPoint(new Vector3(Input.touches[0].position.x, Input.touches[0].position.y, thiscamera.nearClipPlane));
+         if(Movement.player.transform.position.y < thisvector.y && touch.phase == TouchPhase.Moved){
+                Movement.move_up();
             }
-            Movement.moveright();
-            thisvector = thiscamera.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, thiscamera.nearClipPlane));
-            if(Movement.player.transform.position.y < thisvector.y && touch.phase == TouchPhase.Moved){
-                Movement.moveup();
+             if(Movement.player.transform.position.y > thisvector.y && touch.phase == TouchPhase.Moved){
+                Movement.move_down();
             }
-            if(Movement.player.transform.position.y > thisvector.y&& touch.phase == TouchPhase.Moved){
-                Movement.movedown();
+             
+         if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+         {
+             if(!OutofBounds.rightwall)
+             {
+               if(Movement.player.transform.position.x > thisvector.x && touch.phase == TouchPhase.Moved){
+                Movement.move_left();
             }
+
+                if(Movement.player.transform.position.x > thisvector.x && touch.phase == TouchPhase.Moved){
+                Movement.move_right();
+            }
+          }
          }
+     }
   }
 }

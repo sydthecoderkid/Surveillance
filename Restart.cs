@@ -19,12 +19,11 @@ public class Restart : MonoBehaviour
     }
 
      void TaskOnClick(){
-                Movement.gamestarted = false;
+       Movement.gamestarted = false;
         PlayerHealth.movementenabled = true;
         PauseMenu.pausemenuup = false;
         ShowTime.time = 0;
         LazerHit.hit = false;
-       // SceneManager.UnloadSceneAsync(LevelAmount.currentlevel);
         SceneManager.LoadScene(LevelAmount.currentlevel);
     }
 }

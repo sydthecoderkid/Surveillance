@@ -19,5 +19,6 @@ public class ShowTime : MonoBehaviour
         time += Time.deltaTime;
         }
         timer.text = "" + (int) time;
+        
     }
 }

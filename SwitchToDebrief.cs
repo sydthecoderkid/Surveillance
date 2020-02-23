@@ -21,7 +21,7 @@ public class SwitchToDebrief : MonoBehaviour
      void TaskOnClick(){
         SceneManager.LoadScene("Debrief");
         PlayerHealth.movementenabled = true;
-        Movement.gamestarted = false;
+      //  Movement.gamestarted = false;
        
     }
 }

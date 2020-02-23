@@ -16,7 +16,7 @@ public class UnlockLevels : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        leveltwolock = GameObject.Find("Level 2");
+        leveltwolock = GameObject.Find("Lock 2");
         levelthreelock = GameObject.Find("Lock 3");
          levelfourlock = GameObject.Find("Lock 4");
     }
