@@ -40,14 +40,14 @@ public class LevelAmount : MonoBehaviour
               Tempmove.movespeed = 1.4f;
                 currentlevel = "Level3";
                playlevel = "Level3";
-               spawnspeed = 2.5f;
+               spawnspeed = 2.7f;
         }
         if(currentscene.Equals("Level4")){
              coinnumber = 25;
               Tempmove.movespeed = 1.5f;
                 currentlevel = "Level4";
                 playlevel = "Level4";
-                spawnspeed = 2.3f;
+                spawnspeed = 2.7f;
         }
     }
 

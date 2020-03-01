@@ -17,31 +17,29 @@ public class LazerHit : MonoBehaviour
 
      public static bool playlazersound;
 
+     public static Color playercolor;
 
-
-
-  
-    
     // Start is called before the first frame update
     void Start()
     {
         lazer = GetComponent<GameObject>();
-        player = GameObject.Find("Robber");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        
+     if(!hit && player != null){
+         // player.GetComponent<SpriteRenderer>().color = UnityEngine.Color.white;
+
+      }
         if(timer2 >= 0.3f){
             playlazersound = false;
             hit = false;
             timer2 = 0;
+             player.GetComponent<SpriteRenderer>().color = UnityEngine.Color.white;
         }
-      if(!hit && player != null){
-          player.GetComponent<SpriteRenderer>().color = UnityEngine.Color.white;
-      }
       if(hit && player != null){
           timer2 +=Time.deltaTime;
             player.GetComponent<SpriteRenderer>().color = UnityEngine.Color.red;
@@ -52,13 +50,13 @@ public class LazerHit : MonoBehaviour
         if(this.gameObject.name.Equals("Toplazer(Clone)") && col.collider.tag.Equals("Player")){      
         PlayerHealth.health -= 5;
          PlayerHealth.displayhealth -= 5;
+         hit =true;
             playlazersound = true;
             if(!UIShake.shook){
             UIShake.shakeUI();
             }
             ChangeHealthColor.changecolor();
             ChangeTextColor.changecolor();
-         hit =true;
          timer2 = 0;
         
     }

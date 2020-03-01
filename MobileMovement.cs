@@ -32,23 +32,28 @@ public class MobileMovement : MonoBehaviour
          Touch touch = Input.touches[0];
            thisvector = thiscamera.ScreenToWorldPoint(new Vector3(Input.touches[0].position.x, Input.touches[0].position.y, thiscamera.nearClipPlane));
          if(Movement.player.transform.position.y < thisvector.y && touch.phase == TouchPhase.Moved){
+             if(!OutofBounds.topwall){
                 Movement.move_up();
+             }
             }
              if(Movement.player.transform.position.y > thisvector.y && touch.phase == TouchPhase.Moved){
+                 if(!OutofBounds.bottomwall){
                 Movement.move_down();
+                 }
             }
              
          if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
          {
-             if(!OutofBounds.rightwall)
+             if(!OutofBounds.leftwall)
              {
                if(Movement.player.transform.position.x > thisvector.x && touch.phase == TouchPhase.Moved){
                 Movement.move_left();
             }
-
+                if(!OutofBounds.rightwall){
                 if(Movement.player.transform.position.x > thisvector.x && touch.phase == TouchPhase.Moved){
                 Movement.move_right();
             }
+          }
           }
          }
      }

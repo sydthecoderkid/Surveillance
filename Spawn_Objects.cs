@@ -45,7 +45,7 @@ public class Spawn_Objects : MonoBehaviour
      bottombound = (int) bottomwall.transform.position.y;
      
         time += Time.deltaTime;
-        if(OnRender.objectsdestroyed && time >= LevelAmount.spawnspeed && PlayerHealth.movementenabled && !PauseMenu.pausemenuup){
+        if(OnRender.objectsdestroyed && time >= LevelAmount.spawnspeed && PlayerHealth.movementenabled && !PauseMenu.pausemenuup && Movement.gamestarted){
             spawncoins();
             deploylasers();
           
@@ -91,17 +91,11 @@ public class Spawn_Objects : MonoBehaviour
           if(positiony >= topbound){
             positiony = topbound-0.1f;
         }
-         if(position < Movement.playerx){
        Instantiate(coin, new Vector2(position + 2, positiony ),Quaternion.identity);
-         }
-               positiony += (float) random.NextDouble();
-               if(position != Movement.playerx){
-       Instantiate(coin, new Vector2(position + 3, positiony ),Quaternion.identity);
-               }
-        positiony -= (float) random.NextDouble();
-        if(position < Movement.playerx){
+          positiony += (float) random.NextDouble();
+       Instantiate(coin, new Vector2(position + 3, positiony ),Quaternion.identity);         
+        positiony -= (float) random.NextDouble();  
         Instantiate(coin, new Vector2(position+4, positiony ),Quaternion.identity);
-        }
           time = 0;
           
     }

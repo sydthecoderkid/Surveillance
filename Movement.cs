@@ -41,10 +41,10 @@ public class Movement : MonoBehaviour
        if(Input.GetKey(KeyCode.A)){
         move_left();
        }
-        if(Input.GetKey(KeyCode.S)){
+        if(Input.GetKey(KeyCode.S) && !OutofBounds.bottomwall){
         move_down();
        }
-        if(Input.GetKey(KeyCode.W)){
+        if(Input.GetKey(KeyCode.W) && !OutofBounds.topwall){
          move_up();
        }
       }

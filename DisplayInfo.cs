@@ -69,17 +69,15 @@ public class DisplayInfo : MonoBehaviour
          }
         }
 
-        if(timeshown){
+
             scoreholder.SetActive(true);
             score = (totaltime + coinnumber);
-             if(scorecounter < score && timer > 0){
-              scorecounter++;
-               socredisplay.text = ("Score:" + scorecounter);
+               socredisplay.text = ("Score:" + score);
               timer = 0;
               scoreshown = true;
-         }
+         
 
-          if(scoreshown){
+        
               if(coinnumber >= LevelAmount.coinnumber){
                   statusdisplay.color = Color.yellow;
                   succeeded = true;
@@ -91,8 +89,7 @@ public class DisplayInfo : MonoBehaviour
                   statusdisplay.text = "STATUS: FAILURE";
               }
            status.SetActive(true);
-         }
-        }
+        
 
 
         if(coincounter == coinnumber){

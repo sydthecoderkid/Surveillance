@@ -49,11 +49,15 @@ public class OutofBounds : MonoBehaviour
         rightwall = true;
      }
     }
-    void OnCollisionExit2D(Collision2D col)
+    private void OnCollisionExit2D(Collision2D col)
     {
            leftwall = false;
            rightwall = false;
            topwall = false;
            bottomwall = false;
     }
+
+      
+
+    
 }
