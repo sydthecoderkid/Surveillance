@@ -62,7 +62,8 @@ public class LazerHit : MonoBehaviour
     }
     else if(this.gameObject.name.Equals("Coin") ||  this.gameObject.name.Equals("Coin(Clone)")){      
         if (col.collider.tag.Equals("Player")){
-        PlayerHealth.coins+=1f;
+        PlayerHealth.coins+=1;
+        PlayerHealth.showncoins += 1;
          playcoinsound = true;
         Destroy(this.gameObject);
         }

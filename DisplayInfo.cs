@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DisplayInfo : MonoBehaviour
 {
-    public int coinnumber; 
+    public static int coinnumber; 
 
     private int coincounter;
 
@@ -22,8 +22,6 @@ public class DisplayInfo : MonoBehaviour
      public GameObject scoreholder;
 
      public int timecounter;
-
-     public int scorecounter;
    
      private float timer;
 
@@ -41,18 +39,28 @@ public class DisplayInfo : MonoBehaviour
 
 
      public static bool failed;
+
+     public Text takehomecoins;
+
+     public static int takehomecoinsnum;
+
+        public GameObject takehomecoinsholder;
      
     // Start is called before the first frame update
     void Start()
     {
-        coinnumber =PlayerHealth.displaycoins;
+        coinnumber = PlayerHealth.showncoins;
         totaltime = (int) ShowTime.time;
+        takehomecoinsnum = (int) 0 + (coinnumber - LevelAmount.coinnumber);
+        ShopCoins.totalcoins += takehomecoinsnum;
+     
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         timer += Time.deltaTime;
            coindisplay.text = ("X" + coincounter);
         if(coincounter < coinnumber && timer > 0.01f){
@@ -66,6 +74,14 @@ public class DisplayInfo : MonoBehaviour
               timecounter++;
                timerdisplay.text = ("Time:" + timecounter);
               timer = 0;
+              takehomecoinsholder.SetActive(true);
+              if(!failed){
+              takehomecoins.text = ("X" + (PlayerHealth.coins - LevelAmount.coinnumber));
+              }
+              else{
+                    takehomecoins.text = ("X" + 0);
+              }
+
          }
         }
 
@@ -79,12 +95,12 @@ public class DisplayInfo : MonoBehaviour
 
         
               if(coinnumber >= LevelAmount.coinnumber){
-                  statusdisplay.color = Color.yellow;
+                  statusdisplay.color = Color.red;
                   succeeded = true;
                   statusdisplay.text = "STATUS: SUCCESS";
               }
                if(coinnumber < LevelAmount.coinnumber){
-                  statusdisplay.color = Color.black;
+                  statusdisplay.color = Color.red;
                   failed = true;
                   statusdisplay.text = "STATUS: FAILURE";
               }
@@ -98,5 +114,8 @@ public class DisplayInfo : MonoBehaviour
         if(timecounter == totaltime){
             timeshown = true;
         }
+        if(succeeded){
+              PlayerHealth.coins = coinnumber;
+         }
     }
 }

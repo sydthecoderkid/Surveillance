@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelAmount : MonoBehaviour
 {
-    public static int coinnumber =10;
+    public static int coinnumber = 10;
     public static string currentscene;
 
     public static string currentlevel;

@@ -1,27 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Outfits : MonoBehaviour
+using UnityEngine.UI;
+public class ShopCoins : MonoBehaviour
 {
-    public static bool baseoutfit;
+    public Text cointext;
 
-    public static bool outfitone;
-
-    public static bool outfittwo;
-
-    
+    public static int totalcoins = 100;
     // Start is called before the first frame update
     void Start()
     {
-        if(!outfitone && !outfittwo){
-            baseoutfit = true;
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        cointext.text = ("" + totalcoins);
     }
 }

@@ -32,11 +32,17 @@ public class UnlockLevels : MonoBehaviour
           if(LevelAmount.playlevel.Equals("Level2")){
               levelthreeunlocked = true;
               levelthreelock.SetActive(false);
+              leveltwounlocked = true;
+              leveltwolock.SetActive(false);
 
           }
           if(LevelAmount.playlevel.Equals("Level3")){
               levelfourunlocked = true;
               levelfourlock.SetActive(false);
+               levelthreeunlocked = true;
+              levelthreelock.SetActive(false);
+              leveltwounlocked = true;
+              leveltwolock.SetActive(false);
           }
         }
     }

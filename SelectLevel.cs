@@ -24,6 +24,7 @@ public class SelectLevel : MonoBehaviour
     void TaskOnClick(){
         PlayerHealth.movementenabled = true;
         PlayerHealth.playerdied = false;
+        Movement.gamestarted = false;
         ShowTime.time = 0;
         LazerHit.hit = false;
         switch(thisname){
@@ -39,6 +40,7 @@ public class SelectLevel : MonoBehaviour
 
             case "Level Three":
              if(UnlockLevels.levelthreeunlocked)
+             
             SceneManager.LoadScene("Level3");
             break;
 

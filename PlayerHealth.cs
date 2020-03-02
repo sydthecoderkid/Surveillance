@@ -6,10 +6,12 @@ public class PlayerHealth : MonoBehaviour
 {
     public static int health = 100 ;
      public  static int displayhealth = 100;
+
+     public static int showncoins;
     public static bool  movementenabled = true;
 
 public static GameObject player;
-    public static float coins;
+    public static int coins = 0;
     public static int displaycoins;
 
     public static bool playerdied;
@@ -21,8 +23,7 @@ public static GameObject player;
     void Start()
     {
         health = 100;
-        coins = 0;
-        displaycoins = 0;
+        showncoins = 0;
         displayhealth = health;
        player = this.gameObject;
        

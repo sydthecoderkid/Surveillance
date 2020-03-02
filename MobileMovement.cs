@@ -47,11 +47,11 @@ public class MobileMovement : MonoBehaviour
              if(!OutofBounds.leftwall)
              {
                if(Movement.player.transform.position.x > thisvector.x && touch.phase == TouchPhase.Moved){
-                Movement.move_left();
+               // Movement.move_left();
             }
                 if(!OutofBounds.rightwall){
                 if(Movement.player.transform.position.x > thisvector.x && touch.phase == TouchPhase.Moved){
-                Movement.move_right();
+               // Movement.move_right();
             }
           }
           }

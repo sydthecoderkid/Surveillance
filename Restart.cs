@@ -21,6 +21,7 @@ public class Restart : MonoBehaviour
      void TaskOnClick(){
        Movement.gamestarted = false;
         PlayerHealth.movementenabled = true;
+        PlayerHealth.showncoins = 0;
         PauseMenu.pausemenuup = false;
         ShowTime.time = 0;
         LazerHit.hit = false;

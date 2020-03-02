@@ -8,7 +8,7 @@ public class SwitchToOptions : MonoBehaviour
 {
     // Start is called before the first frame update
      public Button yourButton;
-     public GameObject buttonone, buttontwo, back, volume;
+     public GameObject buttonone, buttontwo, back, volume, restartbutton;
 
      
     void Start () {
@@ -26,6 +26,7 @@ public class SwitchToOptions : MonoBehaviour
         buttonone.SetActive(false);
         buttontwo.SetActive(false);
         volume.SetActive(true);
+        restartbutton.SetActive(false);
         this.gameObject.SetActive(false);
         back.SetActive(true);
        
