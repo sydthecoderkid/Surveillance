@@ -13,6 +13,8 @@ public class UnlockLevels : MonoBehaviour
     public static bool levelthreeunlocked;
 
      public static bool levelfourunlocked;
+
+     public static int totalunlockedlevels;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +30,14 @@ public class UnlockLevels : MonoBehaviour
           if(LevelAmount.playlevel.Equals("BankScene")){
               leveltwounlocked = true;
               leveltwolock.SetActive(false);
+              totalunlockedlevels++;
           }
           if(LevelAmount.playlevel.Equals("Level2")){
               levelthreeunlocked = true;
               levelthreelock.SetActive(false);
               leveltwounlocked = true;
               leveltwolock.SetActive(false);
+              totalunlockedlevels++;
 
           }
           if(LevelAmount.playlevel.Equals("Level3")){
@@ -43,6 +47,7 @@ public class UnlockLevels : MonoBehaviour
               levelthreelock.SetActive(false);
               leveltwounlocked = true;
               leveltwolock.SetActive(false);
+              totalunlockedlevels++;
           }
         }
     }

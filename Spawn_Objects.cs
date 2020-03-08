@@ -44,7 +44,9 @@ public class Spawn_Objects : MonoBehaviour
      topbound = (int)topwall.transform.position.y;
      bottombound = (int) bottomwall.transform.position.y;
      
+       if(!PauseMenu.pausemenuup){
         time += Time.deltaTime;
+       }
         if(OnRender.objectsdestroyed && time >= LevelAmount.spawnspeed && PlayerHealth.movementenabled && !PauseMenu.pausemenuup && Movement.gamestarted){
             spawncoins();
             deploylasers();

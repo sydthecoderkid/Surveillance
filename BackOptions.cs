@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class BackOptions : MonoBehaviour
 {
-    public GameObject buttonone, buttontwo, buttonthree, back, volume;
+    public GameObject buttonone, buttontwo, buttonthree, back, volume, continuebutton;
+
+    public GameObject pausetext, optionstext;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +25,11 @@ public class BackOptions : MonoBehaviour
         buttonone.SetActive(true);
         buttontwo.SetActive(true);
         buttonthree.SetActive(true);
+        pausetext.SetActive(true);
+         continuebutton.SetActive(true);
         volume.SetActive(false);
         back.SetActive(false);
+        optionstext.SetActive(false);
        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,24 +9,29 @@ public class PauseMenu : MonoBehaviour
    
    public AudioSource pausemenunoise;
     public static bool pausemenuup;
-    private int numclicks;
+    public static int numclicks;
     // Start is called before the first frame update
     void Start()
     {
+        Button btn = this.gameObject.GetComponent<Button>();
+		btn.onClick.AddListener(TaskOnClick);
         pausemenu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("escape") && numclicks == 0){
+    }
+
+    void TaskOnClick(){
+          if(numclicks == 0){
             pausemenu.SetActive(true);
             PlayerHealth.movementenabled = false;
             pausemenuup = true;
             pausemenunoise.Play();
             numclicks++;
         }
-        else if(Input.GetKeyDown("escape") && numclicks == 1){
+        else if(numclicks == 1){
             pausemenu.SetActive(false);
             PlayerHealth.movementenabled = true;
             pausemenuup = false; 

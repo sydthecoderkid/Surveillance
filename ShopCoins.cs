@@ -6,7 +6,7 @@ public class ShopCoins : MonoBehaviour
 {
     public Text cointext;
 
-    public static int totalcoins = 100;
+    public static int totalcoins = 0;
     // Start is called before the first frame update
     void Start()
     {
