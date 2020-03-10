@@ -30,7 +30,7 @@ public class ToggleVolume : MonoBehaviour
            toggeled = true;
             striker.SetActive(false);
        }
-       else{
+       else if(toggeled){
            audioholder.SetActive(false);
            toggeled = false;
            striker.SetActive(true);

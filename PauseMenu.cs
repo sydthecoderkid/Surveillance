@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
    
    public AudioSource pausemenunoise;
     public static bool pausemenuup;
+    public GameObject volumebuton;
     public static int numclicks;
     // Start is called before the first frame update
     void Start()

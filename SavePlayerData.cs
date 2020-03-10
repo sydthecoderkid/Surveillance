@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SavePlayerData : MonoBehaviour
 {
-      public int totalcoins;
+      public static int totalcoins;
       public static string outfitname;
 
-      public int totalunlockedlevels;
+      public static int totalunlockedlevels;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class SavePlayerData : MonoBehaviour
         else if(Outfits.outfitone){
             outfitname = "cooloutfit";
         }
-        else{
+        else if (Outfits.outfittwo){
             outfitname = "spyoutfit";
         }
 
@@ -30,10 +30,19 @@ public class SavePlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Outfits.baseoutfit){
+           
+        }
+        else if(Outfits.outfitone){
+            outfitname = "cooloutfit";
+        }
+        else{
+            outfitname = "spyoutfit";
+        }
+        Save();
     }
 
-    private void Save(){
+    public static void Save(){
         PlayerPrefs.SetInt("coins", totalcoins);
         PlayerPrefs.SetString("outfit", outfitname);
         PlayerPrefs.SetInt("totalunlockedlevels", totalunlockedlevels);

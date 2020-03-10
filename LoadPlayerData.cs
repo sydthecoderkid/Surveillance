@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class LoadPlayerData : MonoBehaviour
 {
-    public int totallevelsunlocked = 0;
+    public static int totallevelsunlocked = 0;
+
+    private static bool firstload;
     // Start is called before the first frame update
     void Start()
     {
         if(PlayerPrefs.HasKey("totalunlockedlevels")){
             totallevelsunlocked = PlayerPrefs.GetInt("totalunlockedlevels");
+        }
+
+        if(firstload){
+            Outfits.baseoutfit = true;
+            Outfits.outfitone = false;
+            Outfits.outfittwo = false;
+            
         }
         
         Load();
@@ -19,12 +28,12 @@ public class LoadPlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Load();
     }
 
     private void Load(){
        if(PlayerPrefs.HasKey("coins")){
-         ShopCoins.totalcoins = PlayerPrefs.GetInt("coins");
+         
        }
 
        if(PlayerPrefs.HasKey("outfit")){

@@ -51,8 +51,10 @@ public class DisplayInfo : MonoBehaviour
     {
         coinnumber = PlayerHealth.showncoins;
         totaltime = (int) ShowTime.time;
-        takehomecoinsnum = (int) 0 + (coinnumber - LevelAmount.coinnumber);
-        ShopCoins.totalcoins += takehomecoinsnum;
+        takehomecoinsnum = (int) 0 + (coinnumber - LevelAmount.coinnumber); 
+        ShopCoins.totalcoins = takehomecoinsnum;
+        ShopCoins.setcoins();
+        PlayerPrefs.Save();
      
 
     }
@@ -77,6 +79,8 @@ public class DisplayInfo : MonoBehaviour
               takehomecoinsholder.SetActive(true);
               if(!failed){
               takehomecoins.text = ("X" + (PlayerHealth.coins - LevelAmount.coinnumber));
+              ShopCoins.totalcoins = takehomecoinsnum;
+        
               }
               else{
                     takehomecoins.text = ("X" + 0);
