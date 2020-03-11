@@ -28,7 +28,7 @@ public class LoadPlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Load();
+       /// Load();
     }
 
     private void Load(){
@@ -36,17 +36,7 @@ public class LoadPlayerData : MonoBehaviour
          
        }
 
-       if(PlayerPrefs.HasKey("outfit")){
-           if(SavePlayerData.outfitname.Equals("baseoutfit")){
-               Outfits.baseoutfit = true;
-           }
-           else if(SavePlayerData.outfitname.Equals("cooloutfit")){
-               Outfits.outfitone = true;
-           }
-           else if(SavePlayerData.outfitname.Equals("spyoutfit")){
-               Outfits.outfittwo = true;
-           }
-       }
+      
        if(totallevelsunlocked == 1){
            UnlockLevels.leveltwounlocked = true;
            UnlockLevels.leveltwolock.SetActive(false);

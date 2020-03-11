@@ -15,7 +15,7 @@ public class ChangetoLevels : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.DeleteAll();
+       
     }
      void TaskOnClick(){
 	  SceneManager.LoadScene("LevelSelection");

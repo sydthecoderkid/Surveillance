@@ -13,39 +13,17 @@ public class SavePlayerData : MonoBehaviour
     {
         totalcoins = ShopCoins.totalcoins;
         totalunlockedlevels = UnlockLevels.totalunlockedlevels;
-        if(Outfits.baseoutfit){
-            outfitname = "baseoutfit";
-        }
-        else if(Outfits.outfitone){
-            outfitname = "cooloutfit";
-        }
-        else if (Outfits.outfittwo){
-            outfitname = "spyoutfit";
-        }
-
-        
+       
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Outfits.baseoutfit){
-           
-        }
-        else if(Outfits.outfitone){
-            outfitname = "cooloutfit";
-        }
-        else{
-            outfitname = "spyoutfit";
-        }
-        Save();
+        
     }
 
     public static void Save(){
-        PlayerPrefs.SetInt("coins", totalcoins);
-        PlayerPrefs.SetString("outfit", outfitname);
-        PlayerPrefs.SetInt("totalunlockedlevels", totalunlockedlevels);
-        PlayerPrefs.Save();
+      
     }
 }

@@ -29,6 +29,7 @@ public class SelectOutfi : MonoBehaviour
 
 
 
+
   
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,8 @@ public class SelectOutfi : MonoBehaviour
 
          Button btn = this.gameObject.GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
+
+        //Outfits.outfitname = PlayerPrefs.GetString("outfit");
 
         spylock = GameObject.Find("SpyLock");
          coollock = GameObject.Find("CoolLock");
@@ -51,26 +54,32 @@ public class SelectOutfi : MonoBehaviour
             
         }
     
-    if(Outfits.outfitname.Equals("baseoutfit")){
+    if(PlayerPrefs.GetString("outfit").Equals("baseoutfit")){
            selecttext.transform.position = new Vector2(orignialposition, selecttext.transform.position.y);
+           PlayerPrefs.SetString("outfit","baseoutfit");
       }
-      if(Outfits.outfitname.Equals("cooloutfit")){
+      if(PlayerPrefs.GetString("outfit").Equals("cooloutfit")){
            selecttext.transform.position = new Vector2(cooltextposition, selecttext.transform.position.y);
+           purchasedoutfitone = true;
+          PlayerPrefs.SetString("outfit", "cooloutfit");
       }
-      else if(Outfits.outfitname.Equals("spyoutfit")){
+       if(PlayerPrefs.GetString("outfit").Equals("spyoutfit")){
+           purchasedoutfittwo = true;
            selecttext.transform.position = new Vector2(spytextposition, selecttext.transform.position.y);
+                 PlayerPrefs.SetString("outfit","spyoutfit"); 
       }
-         
+         Debug.Log(PlayerPrefs.GetString("outfit"));
+          
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(purchasedoutfittwo){
+          PlayerPrefs.Save();
+        if(purchasedoutfittwo || purchasedoutfitone){
             spylock.SetActive(false);
         }
-        if(purchasedoutfitone){
+        if(purchasedoutfitone ||purchasedoutfittwo){
             coollock.SetActive(false);
         }
 
@@ -78,39 +87,44 @@ public class SelectOutfi : MonoBehaviour
     void TaskOnClick(){
         if(this.gameObject.name.Equals("Cool Button")&& ShopCoins.totalcoins >= coinneeded ||this.gameObject.name.Equals("Cool Button")&& purchasedoutfitone){
             selecttext.transform.position = new Vector2(cooltextposition, selecttext.transform.position.y);
-            PlayerPrefs.SetString("oufit", "cooloutfit");
             if(!purchasedoutfitone){
             ShopCoins.totalcoins -= coinneeded;
             }
             PlayerPrefs.SetInt("coins", ShopCoins.totalcoins);
             purchasedoutfitone = true;
+            Outfits.baseoutfit = false;
             Outfits.outfitone = true;
+            Outfits.outfittwo = false;
             Outfits.outfitname = "cooloutfit";
+              
     }    
 
+    
+
     if(this.gameObject.name.Equals("Spy Button") && ShopCoins.totalcoins >= coinneeded || this.gameObject.name.Equals("Spy Button") &&purchasedoutfittwo){
-            selecttext.transform.position = new Vector2(spytextposition, selecttext.transform.position.y);
-            PlayerPrefs.SetString("oufit", "spyoutfit");
+             selecttext.transform.position = new Vector2(spytextposition, selecttext.transform.position.y);
             if(!purchasedoutfittwo){
             ShopCoins.totalcoins -= coinneeded;
             }
             PlayerPrefs.SetInt("coins", ShopCoins.totalcoins);
             purchasedoutfittwo = true;
+            Outfits.baseoutfit = false;
             Outfits.outfittwo = true;
             Outfits.outfitone = false;
-            Outfits.baseoutfit = false;
-             Outfits.outfitname = "spyoutfit";
+            Outfits.outfitname = "spyoutfit";
+            PlayerPrefs.SetString("outfit", "spyoutfit");
+           
     }  
 
-    else if(this.gameObject.name.Equals("Base Button")){
+     if(this.gameObject.name.Equals("Base Button")){
         selecttext.transform.position = new Vector2(orignialposition, selecttext.transform.position.y);
-            PlayerPrefs.SetString("oufit", "baseoutfit");
             Outfits.baseoutfit = true;
             Outfits.outfitone = false;
             Outfits.outfittwo = false;
              Outfits.outfitname = "baseoutfit";
+              PlayerPrefs.SetString("outfit", "baseoutfit");
        }  
 
-       PlayerPrefs.Save();
+       
     }
 }

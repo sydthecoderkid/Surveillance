@@ -19,10 +19,10 @@ public class OutfitAnimation : MonoBehaviour
         if(Outfits.baseoutfit){
            animname = "BunnyIdle";
         }
-         else if(Outfits.outfitone){
+          if(Outfits.outfitone){
           animname = "BunnyOutfit1Idle";
         }
-          else if(Outfits.outfittwo){
+           if(Outfits.outfittwo){
           animname = "BunnyOutfit2Idle";
         }
     }

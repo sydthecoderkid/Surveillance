@@ -12,20 +12,19 @@ public class ShopCoins : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-                Debug.Log(PlayerPrefs.GetInt("coins"));
        totalcoins = PlayerPrefs.GetInt("coins", totalcoins);
+       totalcoins = 25;
     }
 
     // Update is called once per frame
     void Update()
     {
     
-        cointext.text = ("" + totalcoins);
+        cointext.text = ("" +  totalcoins);
     }
 
     public static void setcoins(){
         PlayerPrefs.SetInt("coins", totalcoins);
-        PlayerPrefs.Save();
         Debug.Log(PlayerPrefs.GetInt("coins"));
     }
 }
